@@ -2,10 +2,10 @@ import React from 'react';
 
 import CollectionItem from '../../components/collection-item/collection-item.component';
 
-const CategoryPage = () => (
+const CollectionPage = ({ match }) => (
     <div className='category'>
-        <h2>CATEGORY PAGE</h2>
+        <h2>COLLECTION PAGE</h2>
     </div>
 )
 
-export default CategoryPage;
+export default CollectionPage;
