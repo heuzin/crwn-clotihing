@@ -5,11 +5,16 @@ import CollectionItem from '../../components/collection-item/collection-item.com
 
 import { selectCollection } from '../../redux/shop/shop.selectors';
 
-const CollectionPage = ({ match }) => (
-    <div className='category'>
-        <h2>COLLECTION PAGE</h2>
-    </div>
-)
+import './collection.styles.scss';
+
+const CollectionPage = ({ collection }) => {
+    console.log(collection)
+    return (
+        <div className='category'>
+            <h2>COLLECTION PAGE</h2>
+        </div>
+    )
+}
 
 const mapStateToProps = (state, ownProps) => ({
     collection: selectCollection(ownProps.match.params.collectionId)(state)
