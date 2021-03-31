@@ -14,7 +14,6 @@ const StripeCheckoutButton = ({ price }) => {
             name='CRWN Clothnig Ltd.'
             billingAddress
             shippingAddress
-            image='https://sendeyo.com/up/d/f3eb2117da'
             description={`Your total price s $${price}`}
             amount={priceForStripe}
             panelLabel='Pay Now'
