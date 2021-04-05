@@ -12,4 +12,4 @@ const WithSpinner = WrappedComponent => ({ isLoading, ...props }) => {
     )
 };
 
-export default WithSpinner
+export default WithSpinner;
