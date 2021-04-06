@@ -9,7 +9,7 @@ import CollectionPage from '../collection/collection.component';
 import WithSpinner from '../../components/with-spinner/with-spinner.component';
 
 import { fetchCollectoinsStartAsync } from '../../redux/shop/shop.actions'
-import { selectIsCollectionFetching} from '../../redux/shop/shop.selectors';
+import { selectIsCollectionFetching, selectIsCollectionsLoaded } from '../../redux/shop/shop.selectors';
 
 const CollectionsOverViewWithSpinner = WithSpinner(CollectionsOverView)
 const CollectionPageWithSpinner = WithSpinner(CollectionPage)
@@ -17,24 +17,31 @@ const CollectionPageWithSpinner = WithSpinner(CollectionPage)
 class ShopPage extends React.Component {
     componentDidMount() {
         const { fetchCollectoinsStartAsync } = this.props;
+
         fetchCollectoinsStartAsync();
     };
 
     render() {
-        const { match, isCollectionFetching } = this.props;
+        const { match, isCollectionFetching, isCollectionloaded } = this.props;
         return (
             <div className='shop-page'>
                 <Route 
                     exact 
                     path={`${match.path}`} 
                     render={(props) => 
-                        <CollectionsOverViewWithSpinner isLoading={isCollectionFetching} {...props}/>} 
+                        <CollectionsOverViewWithSpinner 
+                            isLoading={isCollectionFetching} 
+                            {...props}
+                        />} 
                 />
                 <Route 
                     path={`${match.path}/:collectionId`} 
                     component={CollectionPage}
                     render={(props => (
-                        <CollectionPageWithSpinner isLoading={isCollectionFetching} {...props}/>
+                        <CollectionPageWithSpinner 
+                            isLoading={!isCollectionloaded} 
+                            {...props}
+                        />
                     ))}
                 />
             </div>
@@ -43,7 +50,8 @@ class ShopPage extends React.Component {
 };
 
 const mapStateToProps = createStructuredSelector({
-    isCollectionFetching: selectIsCollectionFetching
+    isCollectionFetching: selectIsCollectionFetching,
+    isCollectionloaded: selectIsCollectionsLoaded
 })
 
 const mapDispatchToProps = dispatch => ({
