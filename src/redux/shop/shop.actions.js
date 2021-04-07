@@ -6,7 +6,7 @@ export const fetchCollectionsStart = () => ({
     type: ShopActionTypes.FETCH_COLLECTIONS_START
 });
 
-export const fetchCollectoinsSuccess = collectionsMap => ({
+export const fetchCollectionsSuccess = collectionsMap => ({
     type: ShopActionTypes.FETCH_COLLECTIONS_SUCCESS,
     payload: collectionsMap
 });
@@ -23,7 +23,7 @@ export const fetchCollectionsStartAsync = () => {
 
         collectionRef.get().then(snapshot => {
             const collectionsMap = convertCollectionsSnapshotToMap(snapshot)
-            disptach(fetchCollectoinsSuccess(collectionsMap))            
+            disptach(fetchCollectionsSuccess(collectionsMap))            
         }).catch(error => disptach(fetchCollectionsFailure(error.message)));
     }
 };
