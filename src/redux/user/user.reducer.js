@@ -23,6 +23,7 @@ const userReducer = (state = INITIA_STATE, action) => {
         case UserActionTypes.GOOGLE_SIGN_IN_FAILURE:
         case UserActionTypes.EMAIL_SIGN_IN_FAILURE:
         case UserActionTypes.SIGN_OUT_FAILURE:
+        case UserActionTypes.SIGN_UP_FAILURE:
             return {
                 ...state,
                 error: action.payload
