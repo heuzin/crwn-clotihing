@@ -16,7 +16,7 @@ export function* fetchCollectionAsync() {
         
         yield put(fetchCollectionsSuccess(collectionsMap))
     } catch (error) {
-        yield put(fetchCollectionsFailure)
+        yield put(fetchCollectionsFailure(error.message))
     }
 };
 
