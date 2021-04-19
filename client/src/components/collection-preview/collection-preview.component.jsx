@@ -14,7 +14,7 @@ const CollectionPreview = ({ title, items, history, match, routeName }) => (
         <TitleContainer onClick={() => history.push(`${match.path}/${routeName}`)}>
         {title.toUpperCase()}
         </TitleContainer>
-        <PreviewContainer>
+        <PreviewContainer className='grid'>
         {items
             .filter((item, idx) => idx < 4)
             .map(item => (
