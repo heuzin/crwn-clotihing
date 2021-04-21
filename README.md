@@ -36,4 +36,4 @@ $ npm start
 
 ## Screenshot
 
-![GitHub Logo](/public/images/crwn-clothing.png)
+![GitHub Logo](/client/public/images/crwn-clothing.png)
